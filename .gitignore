@@ -1,2 +1,6 @@
 .DS_Store
 
+__pycache__/
+# Auto-skill marketplace runtime
+auto/
+__pycache__/
