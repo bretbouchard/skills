@@ -1,6 +1,6 @@
 ---
 name: gsd-spike
-description: "Rapidly spike an idea with throwaway experiments to validate feasibility before planning"
+description: "INTERNAL — invoked by /gsd umbrella. Rapidly spike an idea with throwaway experiments to validate feasibility before planning"
 argument-hint: "<idea to validate> [--quick]"
 allowed-tools:
   - Read

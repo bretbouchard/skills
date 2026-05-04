@@ -1,6 +1,6 @@
 ---
 name: gsd-manager
-description: "Interactive command center for managing multiple phases from one terminal"
+description: "INTERNAL — invoked by /gsd umbrella. Interactive command center for managing multiple phases from one terminal"
 allowed-tools:
   - Read
   - Write

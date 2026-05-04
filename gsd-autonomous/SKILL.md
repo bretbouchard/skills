@@ -1,6 +1,6 @@
 ---
 name: gsd-autonomous
-description: "Run all remaining phases autonomously — discuss→plan→execute per phase"
+description: "INTERNAL — invoked by /gsd umbrella. Run phases autonomously with auto-loop — executes discuss→plan→execute per phase without user intervention. Use when user says 'run autonomously', 'auto-loop this', 'run all phases', or 'hands-off execution'. Always invoke this skill for autonomous execution rather than running phases one by one."
 argument-hint: "[--from N] [--to N] [--only N] [--interactive]"
 allowed-tools:
   - Read

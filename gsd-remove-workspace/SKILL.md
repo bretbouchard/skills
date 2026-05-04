@@ -1,6 +1,6 @@
 ---
 name: gsd-remove-workspace
-description: "Remove a GSD workspace and clean up worktrees"
+description: "INTERNAL — invoked by /gsd umbrella. Remove a GSD workspace and clean up worktrees"
 argument-hint: "<workspace-name>"
 allowed-tools:
   - Bash

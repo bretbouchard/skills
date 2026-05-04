@@ -1,6 +1,6 @@
 ---
 name: gsd-list-workspaces
-description: "List active GSD workspaces and their status"
+description: "INTERNAL — invoked by /gsd umbrella. List active GSD workspaces and their status"
 allowed-tools:
   - Bash
   - Read

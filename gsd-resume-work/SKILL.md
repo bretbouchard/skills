@@ -1,6 +1,6 @@
 ---
 name: gsd-resume-work
-description: "Resume work from previous session with full context restoration"
+description: "INTERNAL — invoked by /gsd umbrella. Resume work from previous session with full context restoration"
 allowed-tools:
   - Read
   - Bash

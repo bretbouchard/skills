@@ -1,6 +1,6 @@
 ---
 name: gsd-spec-phase
-description: "Socratic spec refinement — clarify WHAT a phase delivers with ambiguity scoring before discuss-phase. Produces a SPEC.md with falsifiable requirements locked before implementation decisions begin."
+description: "INTERNAL — invoked by /gsd umbrella. Socratic spec refinement — clarify WHAT a phase delivers with ambiguity scoring before discuss-phase. Produces a SPEC.md with falsifiable requirements locked before implementation decisions begin."
 argument-hint: "<phase> [--auto] [--text]"
 allowed-tools:
   - Read

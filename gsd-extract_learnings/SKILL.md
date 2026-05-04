@@ -1,6 +1,6 @@
 ---
 name: gsd-extract_learnings
-description: "Extract decisions, lessons, patterns, and surprises from completed phase artifacts"
+description: "INTERNAL — invoked by /gsd umbrella. Extract decisions, lessons, patterns, and surprises from completed phase artifacts"
 argument-hint: "<phase-number>"
 allowed-tools:
   - Read

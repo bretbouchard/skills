@@ -1,6 +1,6 @@
 ---
 name: gsd-review-backlog
-description: "Review and promote backlog items to active milestone"
+description: "INTERNAL — invoked by /gsd umbrella. Review and promote backlog items to active milestone — evaluates backlog for readiness and promotes qualified items. Use when user says 'review backlog', 'promote backlog items', or 'review the backlog'. Always invoke this skill for backlog promotion workflows."
 allowed-tools:
   - Read
   - Write

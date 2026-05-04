@@ -1,6 +1,6 @@
 ---
 name: theme-factory
-description: Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.
+description: "INTERNAL — invoked by /creative umbrella. Apply themed styling to artifacts — slides, docs, HTML pages, reports. 10 preset themes with colors/fonts, or generate custom themes. Use when user says 'apply a theme', 'style these slides', 'dark theme', 'light theme', 'make it look professional', or 'add styling'. Always invoke this skill for theme application rather than styling manually."
 license: Complete terms in LICENSE.txt
 ---
 

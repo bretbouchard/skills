@@ -1,6 +1,6 @@
 ---
 name: gsd-sketch
-description: "Rapidly sketch UI/design ideas using throwaway HTML mockups with multi-variant exploration"
+description: "INTERNAL — invoked by /gsd umbrella. Rapidly sketch UI/design ideas using throwaway HTML mockups with multi-variant exploration"
 argument-hint: "<design idea to explore> [--quick]"
 allowed-tools:
   - Read

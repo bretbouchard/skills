@@ -1,6 +1,6 @@
 ---
 name: template-skill
-description: Replace with description of the skill and when Claude should use it.
+description: "TEMPLATE ONLY — do not invoke. Copy this folder to create new skills, then replace this description."
 ---
 
 # Insert instructions below

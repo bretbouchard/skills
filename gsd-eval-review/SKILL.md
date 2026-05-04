@@ -1,6 +1,6 @@
 ---
 name: gsd-eval-review
-description: "Retroactively audit an executed AI phase's evaluation coverage — scores each eval dimension as COVERED/PARTIAL/MISSING and produces an actionable EVAL-REVIEW.md with remediation plan"
+description: "INTERNAL — invoked by /gsd umbrella. Retroactively audit an executed AI phase's evaluation coverage — scores each eval dimension as COVERED/PARTIAL/MISSING and produces an actionable EVAL-REVIEW.md with remediation plan"
 argument-hint: "[phase number]"
 allowed-tools:
   - Read

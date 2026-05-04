@@ -1,6 +1,6 @@
 ---
 name: gsd-plan-milestone-gaps
-description: "Create phases to close all gaps identified by milestone audit"
+description: "INTERNAL — invoked by /gsd umbrella. Create phases to close all gaps identified by milestone audit"
 allowed-tools:
   - Read
   - Write

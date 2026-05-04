@@ -1,6 +1,6 @@
 ---
 name: gsd-milestone-summary
-description: "Generate a comprehensive project summary from milestone artifacts for team onboarding and review"
+description: "INTERNAL — invoked by /gsd umbrella. Generate a comprehensive project summary from milestone artifacts for team onboarding and review"
 argument-hint: "[version]"
 allowed-tools:
   - Read

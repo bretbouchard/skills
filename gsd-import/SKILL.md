@@ -1,6 +1,6 @@
 ---
 name: gsd-import
-description: "Ingest external plans with conflict detection against project decisions before writing anything."
+description: "INTERNAL — invoked by /gsd umbrella. Ingest external plans with conflict detection against project decisions before writing anything."
 argument-hint: "--from <filepath>"
 allowed-tools:
   - Read

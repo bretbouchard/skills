@@ -1,6 +1,6 @@
 ---
 name: gsd-review
-description: "Request cross-AI peer review of phase plans from external AI CLIs"
+description: "INTERNAL — invoked by /gsd umbrella. Request cross-AI peer review — sends phase plans to external AI CLIs (Gemini, Codex, OpenCode, Qwen, Cursor) for independent review. Use when user says 'external review', 'peer review the plan', 'get another AI to review', or 'cross-AI review'. Always invoke this skill for external AI review."
 argument-hint: "--phase N [--gemini] [--claude] [--codex] [--opencode] [--qwen] [--cursor] [--all]"
 allowed-tools:
   - Read

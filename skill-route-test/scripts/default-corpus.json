@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "description": "Default routing test corpus for ~/.claude/skills/ — covers GSD workflow, bret-* commands, review cluster, visual/design, and negative cases",
+  "test_cases": [
+    {
+      "id": "tc-001",
+      "prompt": "I want to start a new project",
+      "expected_skill": "gsd-new-project",
+      "acceptable_alternates": ["gsd-do"],
+      "category": "gsd-workflow",
+      "priority": "high"
+    },
+    {
+      "id": "tc-002",
+      "prompt": "What should I work on next?",
+      "expected_skill": "gsd-next",
+      "acceptable_alternates": ["gsd-progress", "gsd-do"],
+      "category": "gsd-workflow",
+      "priority": "high"
+    },
+    {
+      "id": "tc-003",
+      "prompt": "Show me project progress",
+      "expected_skill": "gsd-progress",
+      "acceptable_alternates": ["bret-overview"],
+      "category": "gsd-workflow",
+      "priority": "high"
+    },
+    {
+      "id": "tc-004",
+      "prompt": "I want to do something but I'm not sure which GSD command to use",
+      "expected_skill": "gsd-do",
+      "acceptable_alternates": ["gsd-help"],
+      "category": "gsd-workflow",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-005",
+      "prompt": "Let's ship this phase",
+      "expected_skill": "gsd-ship",
+      "acceptable_alternates": ["gsd-execute-phase"],
+      "category": "gsd-workflow",
+      "priority": "high"
+    },
+    {
+      "id": "tc-006",
+      "prompt": "Review the code I just wrote",
+      "expected_skill": "gsd-code-review",
+      "acceptable_alternates": ["code-review"],
+      "category": "review",
+      "priority": "high"
+    },
+    {
+      "id": "tc-007",
+      "prompt": "Fix the issues from the code review",
+      "expected_skill": "gsd-code-review-fix",
+      "acceptable_alternates": [],
+      "category": "review",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-008",
+      "prompt": "Run phase 2 autonomously with auto-loop",
+      "expected_skill": "gsd-autonomous",
+      "acceptable_alternates": ["auto-loop"],
+      "category": "gsd-workflow",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-009",
+      "prompt": "Show me my agent budget",
+      "expected_skill": "bret-budget",
+      "acceptable_alternates": ["bret:budget"],
+      "category": "bret-commands",
+      "priority": "high"
+    },
+    {
+      "id": "tc-010",
+      "prompt": "What are the project concerns and risks right now?",
+      "expected_skill": "bret-concerns",
+      "acceptable_alternates": ["bret:concerns"],
+      "category": "bret-commands",
+      "priority": "high"
+    },
+    {
+      "id": "tc-011",
+      "prompt": "Set my parallel agent limits to 3",
+      "expected_skill": "bret-parallel-limits",
+      "acceptable_alternates": ["bret:parallel-limits", "bret-budget"],
+      "category": "bret-commands",
+      "priority": "high"
+    },
+    {
+      "id": "tc-012",
+      "prompt": "Give me an overview of everything going on",
+      "expected_skill": "bret-overview",
+      "acceptable_alternates": ["bret:overview", "gsd-progress"],
+      "category": "bret-commands",
+      "priority": "high"
+    },
+    {
+      "id": "tc-013",
+      "prompt": "Get an external AI review of the phase 2 plan",
+      "expected_skill": "gsd-review",
+      "acceptable_alternates": [],
+      "category": "review",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-014",
+      "prompt": "Review and promote backlog items",
+      "expected_skill": "gsd-review-backlog",
+      "acceptable_alternates": [],
+      "category": "review",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-015",
+      "prompt": "Audit the evaluation coverage for the AI phase",
+      "expected_skill": "gsd-eval-review",
+      "acceptable_alternates": [],
+      "category": "review",
+      "priority": "low"
+    },
+    {
+      "id": "tc-016",
+      "prompt": "Run a visual UI audit on the frontend",
+      "expected_skill": "gsd-ui-review",
+      "acceptable_alternates": [],
+      "category": "review",
+      "priority": "low"
+    },
+    {
+      "id": "tc-017",
+      "prompt": "Create a poster for the product launch",
+      "expected_skill": "canvas-design",
+      "acceptable_alternates": [],
+      "category": "visual",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-018",
+      "prompt": "Make generative art using p5.js",
+      "expected_skill": "algorithmic-art",
+      "acceptable_alternates": [],
+      "category": "visual",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-019",
+      "prompt": "Apply a dark theme to these slides",
+      "expected_skill": "theme-factory",
+      "acceptable_alternates": [],
+      "category": "visual",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-020",
+      "prompt": "Sketch a UI design for the login screen",
+      "expected_skill": "gsd-sketch",
+      "acceptable_alternates": ["canvas-design"],
+      "category": "visual",
+      "priority": "medium"
+    },
+    {
+      "id": "tc-021",
+      "prompt": "What does GSD do? Show me available commands",
+      "expected_skill": "gsd-help",
+      "acceptable_alternates": [],
+      "category": "negative",
+      "priority": "low"
+    },
+    {
+      "id": "tc-022",
+      "prompt": "Quick fix for a typo in the config",
+      "expected_skill": "gsd-fast",
+      "acceptable_alternates": ["gsd-quick"],
+      "category": "negative",
+      "priority": "low"
+    },
+    {
+      "id": "tc-023",
+      "prompt": "Add this feature idea to the backlog",
+      "expected_skill": "gsd-add-backlog",
+      "acceptable_alternates": [],
+      "category": "negative",
+      "priority": "low"
+    },
+    {
+      "id": "tc-024",
+      "prompt": "Check project health and dependencies",
+      "expected_skill": "gsd-health",
+      "acceptable_alternates": [],
+      "category": "negative",
+      "priority": "low"
+    },
+    {
+      "id": "tc-025",
+      "prompt": "Sync my GSD project with beads tracking",
+      "expected_skill": "bret-sync",
+      "acceptable_alternates": ["bret:sync"],
+      "category": "bret-commands",
+      "priority": "high"
+    }
+  ]
+}

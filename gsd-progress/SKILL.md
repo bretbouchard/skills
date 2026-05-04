@@ -1,6 +1,6 @@
 ---
 name: gsd-progress
-description: "Check project progress, show context, and route to next action (execute or plan). Use --forensic to append a 6-check integrity audit after the standard report."
+description: "INTERNAL — invoked by /gsd umbrella. Check project progress, show context, and route to next action (execute or plan). Use --forensic to append a 6-check integrity audit after the standard report."
 argument-hint: "[--forensic]"
 allowed-tools:
   - Read

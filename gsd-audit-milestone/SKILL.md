@@ -1,6 +1,6 @@
 ---
 name: gsd-audit-milestone
-description: "Audit milestone completion against original intent before archiving"
+description: "INTERNAL — invoked by /gsd umbrella. Audit milestone completion against original intent before archiving"
 argument-hint: "[version]"
 allowed-tools:
   - Read

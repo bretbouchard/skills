@@ -1,0 +1,206 @@
+{
+  "version": 3,
+  "description": "Gateway test corpus v3 — scores ANY correct routing (umbrella OR specific internal skill) as PASS. The goal is correct functionality, not forced umbrella routing.",
+  "test_cases": [
+    {
+      "id": "gw-001",
+      "prompt": "I want to start a new project",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-new-project"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-002",
+      "prompt": "What should I work on next?",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-next", "gsd-progress"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-003",
+      "prompt": "Show me project progress",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-progress", "gsd-stats"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-004",
+      "prompt": "Let's ship this phase",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-ship", "gsd-complete-milestone"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-005",
+      "prompt": "Review the code I just wrote",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-code-review", "code-review"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-006",
+      "prompt": "Fix the issues from the code review",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-code-review-fix"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-007",
+      "prompt": "Run phase 2 autonomously with auto-loop",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-autonomous", "gsd-execute-phase", "auto-loop"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-008",
+      "prompt": "Get an external AI review of the phase 2 plan",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-review"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-009",
+      "prompt": "Review and promote backlog items",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-review-backlog"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-010",
+      "prompt": "Quick fix for a typo in the config",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-fast", "gsd-quick"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-011",
+      "prompt": "Add this feature idea to the backlog",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-add-backlog"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-012",
+      "prompt": "Check project health and dependencies",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-health"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-013",
+      "prompt": "Sketch a UI design for the login screen",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-sketch", "creative", "canvas-design"],
+      "category": "gsd-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-014",
+      "prompt": "Sync my GSD project with beads tracking",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["bret", "bret-sync"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-015",
+      "prompt": "There's a bug in the authentication module",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-debug"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-016",
+      "prompt": "What does GSD do? Show me available commands",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-help"],
+      "category": "gsd-gateway",
+      "priority": "low"
+    },
+    {
+      "id": "gw-017",
+      "prompt": "Show me my agent budget",
+      "expected_skill": "bret",
+      "acceptable_alternates": ["bret-budget", "bret:budget"],
+      "category": "bret-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-018",
+      "prompt": "What are the project concerns and risks right now?",
+      "expected_skill": "bret",
+      "acceptable_alternates": ["bret-concerns", "bret:concerns"],
+      "category": "bret-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-019",
+      "prompt": "Set my parallel agent limits to 3",
+      "expected_skill": "bret",
+      "acceptable_alternates": ["bret-parallel-limits", "bret:parallel-limits"],
+      "category": "bret-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-020",
+      "prompt": "Give me an overview of everything going on",
+      "expected_skill": "bret",
+      "acceptable_alternates": ["bret-overview", "bret:overview"],
+      "category": "bret-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-021",
+      "prompt": "Create a poster for the product launch",
+      "expected_skill": "creative",
+      "acceptable_alternates": ["canvas-design"],
+      "category": "creative-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-022",
+      "prompt": "Make generative art using p5.js",
+      "expected_skill": "creative",
+      "acceptable_alternates": ["algorithmic-art"],
+      "category": "creative-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-023",
+      "prompt": "Apply a dark theme to these slides",
+      "expected_skill": "creative",
+      "acceptable_alternates": ["theme-factory"],
+      "category": "creative-gateway",
+      "priority": "high"
+    },
+    {
+      "id": "gw-024",
+      "prompt": "Design a distinctive frontend interface for the dashboard",
+      "expected_skill": "creative",
+      "acceptable_alternates": ["frontend-design"],
+      "category": "creative-gateway",
+      "priority": "medium"
+    },
+    {
+      "id": "gw-025",
+      "prompt": "I need to plan phase 3 of my project",
+      "expected_skill": "gsd",
+      "acceptable_alternates": ["gsd-plan-phase"],
+      "category": "gsd-gateway",
+      "priority": "high"
+    }
+  ]
+}

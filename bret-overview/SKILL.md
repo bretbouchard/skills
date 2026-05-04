@@ -1,6 +1,6 @@
 ---
 name: bret:overview
-description: Universal dashboard showing EVERYTHING - GSD projects, beads tracking, progress, blockers, auto-loop status
+description: "INTERNAL — invoked by /bret umbrella. Show unified dashboard of all work — GSD projects, beads tasks, auto-loop status, agent budget, blockers, progress. Triggers: show me everything, overview, dashboard, what's the status, what's going on"
 user_invocable: true
 allowed-tools:
   - Read

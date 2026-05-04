@@ -1,6 +1,6 @@
 ---
 name: gsd-graphify
-description: "Build, query, and inspect the project knowledge graph in .planning/graphs/"
+description: "INTERNAL — invoked by /gsd umbrella. Build, query, and inspect the project knowledge graph in .planning/graphs/"
 argument-hint: "[build|query <term>|status|diff]"
 allowed-tools:
   - Read

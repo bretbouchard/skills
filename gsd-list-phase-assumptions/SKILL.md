@@ -1,6 +1,6 @@
 ---
 name: gsd-list-phase-assumptions
-description: "Surface Claude's assumptions about a phase approach before planning"
+description: "INTERNAL — invoked by /gsd umbrella. Surface Claude's assumptions about a phase approach before planning"
 argument-hint: "[phase]"
 allowed-tools:
   - Read

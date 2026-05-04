@@ -1,6 +1,6 @@
 ---
 name: gsd-next
-description: "Automatically advance to the next logical step in the GSD workflow"
+description: "INTERNAL — invoked by /gsd umbrella. Advance to the next GSD workflow step — inspects current project state and routes to the correct next command. Use when user asks 'what's next', 'what should I work on', 'continue', or 'advance the project'. Always invoke this skill rather than guessing the next workflow step."
 allowed-tools:
   - Read
   - Bash

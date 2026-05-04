@@ -1,6 +1,6 @@
 ---
 name: gsd-profile-user
-description: "Generate developer behavioral profile and create Claude-discoverable artifacts"
+description: "INTERNAL — invoked by /gsd umbrella. Generate developer behavioral profile and create Claude-discoverable artifacts"
 argument-hint: "[--questionnaire] [--refresh]"
 allowed-tools:
   - Read

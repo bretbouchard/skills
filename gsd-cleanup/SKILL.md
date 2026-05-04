@@ -1,6 +1,6 @@
 ---
 name: gsd-cleanup
-description: "Archive accumulated phase directories from completed milestones"
+description: "INTERNAL — invoked by /gsd umbrella. Archive accumulated phase directories from completed milestones"
 allowed-tools:
   - Read
   - Write

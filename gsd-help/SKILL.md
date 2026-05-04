@@ -1,6 +1,6 @@
 ---
 name: gsd-help
-description: "Show available GSD commands and usage guide"
+description: "INTERNAL — invoked by /gsd umbrella. Show all available GSD commands and usage guide — lists every skill with description and arguments. Use when user says 'what does GSD do', 'show me commands', 'help', 'what commands are available', or 'GSD help'. Always invoke this skill when user asks about GSD capabilities."
 allowed-tools:
   - Read
 ---

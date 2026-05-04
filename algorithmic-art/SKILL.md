@@ -1,6 +1,6 @@
 ---
 name: algorithmic-art
-description: Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.
+description: "INTERNAL — invoked by /creative umbrella. Generate algorithmic and generative art using p5.js with seeded randomness — flow fields, particle systems, fractals, and code-driven visuals. Use when user says 'generative art', 'algorithmic art', 'p5.js art', 'flow field', 'particle system', or 'art with code'. Always invoke this skill for code-generated art rather than writing p5.js from scratch."
 license: Complete terms in LICENSE.txt
 ---
 

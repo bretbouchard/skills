@@ -1,6 +1,6 @@
 ---
 name: gsd-research-phase
-description: "Research how to implement a phase (standalone - usually use /gsd-plan-phase instead)"
+description: "INTERNAL — invoked by /gsd umbrella. Research how to implement a phase (standalone - usually use /gsd-plan-phase instead)"
 argument-hint: "[phase]"
 allowed-tools:
   - Read

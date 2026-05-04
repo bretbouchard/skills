@@ -1,6 +1,6 @@
 ---
 name: gsd-update
-description: "Update GSD to latest version with changelog display"
+description: "INTERNAL — invoked by /gsd umbrella. Update GSD to latest version with changelog display"
 allowed-tools:
   - Bash
   - AskUserQuestion

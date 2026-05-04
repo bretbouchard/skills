@@ -1,6 +1,6 @@
 ---
 name: gsd-session-report
-description: "Generate a session report with token usage estimates, work summary, and outcomes"
+description: "INTERNAL — invoked by /gsd umbrella. Generate a session report with token usage estimates, work summary, and outcomes"
 allowed-tools:
   - Read
   - Bash

@@ -1,6 +1,6 @@
 ---
 name: gsd-audit-uat
-description: "Cross-phase audit of all outstanding UAT and verification items"
+description: "INTERNAL — invoked by /gsd umbrella. Cross-phase audit of all outstanding UAT and verification items"
 allowed-tools:
   - Read
   - Glob

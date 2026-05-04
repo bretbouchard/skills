@@ -1,6 +1,6 @@
 ---
 name: gsd-code-review
-description: "Review source files changed during a phase for bugs, security issues, and code quality problems"
+description: "INTERNAL — invoked by /gsd umbrella. Run structured code review on phase changes — scans for bugs, security issues, quality problems, produces REVIEW.md with severity-ranked findings. Use when user says 'review the code', 'code review', 'check my code', or 'review phase N'. Always invoke this skill for code reviews rather than reviewing inline."
 argument-hint: "<phase-number> [--depth=quick|standard|deep] [--files file1,file2,...]"
 allowed-tools:
   - Read

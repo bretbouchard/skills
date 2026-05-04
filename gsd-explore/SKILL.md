@@ -1,6 +1,6 @@
 ---
 name: gsd-explore
-description: "Socratic ideation and idea routing — think through ideas before committing to plans"
+description: "INTERNAL — invoked by /gsd umbrella. Socratic ideation and idea routing — think through ideas before committing to plans"
 allowed-tools:
   - Read
   - Write

@@ -1,6 +1,6 @@
 ---
 name: gsd-scan
-description: "Rapid codebase assessment — lightweight alternative to /gsd-map-codebase"
+description: "INTERNAL — invoked by /gsd umbrella. Rapid codebase assessment — lightweight alternative to /gsd-map-codebase"
 allowed-tools:
   - Read
   - Write
