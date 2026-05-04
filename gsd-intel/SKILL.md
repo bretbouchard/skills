@@ -1,6 +1,6 @@
 ---
 name: gsd-intel
-description: "INTERNAL — invoked by /gsd umbrella. Query, inspect, or refresh codebase intelligence files in .planning/intel/"
+description: "Query, inspect, or refresh codebase intelligence files in .planning/intel/"
 argument-hint: "[query <term>|status|diff|refresh]"
 allowed-tools:
   - Read

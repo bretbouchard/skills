@@ -1,6 +1,6 @@
 ---
 name: gsd-stats
-description: "INTERNAL — invoked by /gsd umbrella. Display project statistics — phases, plans, requirements, git metrics, and timeline"
+description: "Display project statistics — phases, plans, requirements, git metrics, and timeline"
 allowed-tools:
   - Read
   - Bash

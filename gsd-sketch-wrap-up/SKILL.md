@@ -1,6 +1,6 @@
 ---
 name: gsd-sketch-wrap-up
-description: "INTERNAL — invoked by /gsd umbrella. Package sketch design findings into a persistent project skill for future build conversations"
+description: "Package sketch design findings into a persistent project skill for future build conversations"
 allowed-tools:
   - Read
   - Write

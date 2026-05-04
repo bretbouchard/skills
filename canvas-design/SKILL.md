@@ -1,6 +1,6 @@
 ---
 name: canvas-design
-description: "INTERNAL — invoked by /creative umbrella. Generate visual art as .png and .pdf files — posters, illustrations, card designs, logos, and static graphics using design principles. Use when user says 'create a poster', 'make a design', 'generate visual art', 'create a card', or 'make an illustration'. Always invoke this skill for visual art generation rather than describing art in text."
+description: "Generate visual art as .png and .pdf files — posters, illustrations, card designs, logos, and static graphics using design principles. Use when user says 'create a poster', 'make a design', 'generate visual art', 'create a card', or 'make an illustration'. Always invoke this skill for visual art generation rather than describing art in text."
 license: Complete terms in LICENSE.txt
 ---
 

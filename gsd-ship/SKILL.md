@@ -1,6 +1,6 @@
 ---
 name: gsd-ship
-description: "INTERNAL — invoked by /gsd umbrella. Ship a phase or milestone — creates PR, runs review, prepares for merge. Use when user says 'ship this', 'let's ship', 'create a PR', 'merge this', or 'publish this phase'. Always invoke this skill for shipping rather than creating PRs manually."
+description: "Ship a phase or milestone — creates PR, runs review, prepares for merge. Use when user says 'ship this', 'let's ship', 'create a PR', 'merge this', or 'publish this phase'. Always invoke this skill for shipping rather than creating PRs manually."
 argument-hint: "[phase number or milestone, e.g., '4' or 'v1.0']"
 allowed-tools:
   - Read

@@ -1,6 +1,6 @@
 ---
 name: gsd-check-todos
-description: "INTERNAL — invoked by /gsd umbrella. List pending todos and select one to work on"
+description: "List pending todos and select one to work on"
 argument-hint: "[area filter]"
 allowed-tools:
   - Read

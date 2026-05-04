@@ -1,6 +1,6 @@
 ---
 name: gsd-new-project
-description: "INTERNAL — invoked by /gsd umbrella. Initialize a new project with deep context gathering and PROJECT.md"
+description: "Initialize a new project with deep context gathering and PROJECT.md"
 argument-hint: "[--auto]"
 allowed-tools:
   - Read

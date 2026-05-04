@@ -1,6 +1,6 @@
 ---
 name: gsd-join-discord
-description: "INTERNAL — invoked by /gsd umbrella. Join the GSD Discord community"
+description: "Join the GSD Discord community"
 ---
 
 

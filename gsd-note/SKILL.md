@@ -1,6 +1,6 @@
 ---
 name: gsd-note
-description: "INTERNAL — invoked by /gsd umbrella. Zero-friction idea capture. Append, list, or promote notes to todos."
+description: "Zero-friction idea capture. Append, list, or promote notes to todos."
 argument-hint: "<text> | list | promote <N> [--global]"
 allowed-tools:
   - Read

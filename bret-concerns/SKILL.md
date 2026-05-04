@@ -1,6 +1,6 @@
 ---
 name: bret:concerns
-description: "INTERNAL — invoked by /bret umbrella. Surface project concerns, risks, and blockers — scan GSD projects and beads for issues needing attention before they escalate. Use when user asks about risks, concerns, blockers, or what might go wrong."
+description: "Surface project concerns, risks, and blockers — scan GSD projects and beads for issues needing attention before they escalate. Use when user asks about risks, concerns, blockers, or what might go wrong."
 user_invocable: true
 allowed-tools:
   - Read

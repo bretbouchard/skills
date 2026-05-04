@@ -1,6 +1,6 @@
 ---
 name: gsd-fast
-description: "INTERNAL — invoked by /gsd umbrella. Execute a quick trivial task inline — no subagents, no planning, no overhead. Use when user says 'quick fix', 'just do this small thing', 'trivial change', 'one-liner fix', or 'no planning needed'. Invoke for small tasks that don't warrant a full GSD workflow."
+description: "Execute a quick trivial task inline — no subagents, no planning, no overhead. Use when user says 'quick fix', 'just do this small thing', 'trivial change', 'one-liner fix', or 'no planning needed'. Invoke for small tasks that don't warrant a full GSD workflow."
 argument-hint: "[task description]"
 allowed-tools:
   - Read

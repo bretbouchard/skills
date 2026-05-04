@@ -1,6 +1,6 @@
 ---
 name: gsd-code-review-fix
-description: "INTERNAL — invoked by /gsd umbrella. Auto-fix code review issues from REVIEW.md — spawns fixer agent, commits each fix atomically. Use when user says 'fix the review issues', 'apply review fixes', or 'fix code review findings'. Always invoke this skill after code review rather than fixing issues manually."
+description: "Auto-fix code review issues from REVIEW.md — spawns fixer agent, commits each fix atomically. Use when user says 'fix the review issues', 'apply review fixes', or 'fix code review findings'. Always invoke this skill after code review rather than fixing issues manually."
 argument-hint: "<phase-number> [--all] [--auto]"
 allowed-tools:
   - Read

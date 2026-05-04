@@ -1,6 +1,6 @@
 ---
 name: gsd-debug
-description: "INTERNAL — invoked by /gsd umbrella. Systematic debugging with persistent state across context resets"
+description: "Systematic debugging with persistent state across context resets"
 argument-hint: "[list | status <slug> | continue <slug> | --diagnose] [issue description]"
 allowed-tools:
   - Read

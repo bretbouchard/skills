@@ -1,6 +1,6 @@
 ---
 name: gsd-map-codebase
-description: "INTERNAL — invoked by /gsd umbrella. Analyze codebase with parallel mapper agents to produce .planning/codebase/ documents"
+description: "Analyze codebase with parallel mapper agents to produce .planning/codebase/ documents"
 argument-hint: "[optional: specific area to map, e.g., 'api' or 'auth']"
 allowed-tools:
   - Read

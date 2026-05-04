@@ -1,6 +1,6 @@
 ---
 name: gsd-ai-integration-phase
-description: "INTERNAL — invoked by /gsd umbrella. Generate AI design contract (AI-SPEC.md) for phases that involve building AI systems — framework selection, implementation guidance from official docs, and evaluation strategy"
+description: "Generate AI design contract (AI-SPEC.md) for phases that involve building AI systems — framework selection, implementation guidance from official docs, and evaluation strategy"
 argument-hint: "[phase number]"
 allowed-tools:
   - Read

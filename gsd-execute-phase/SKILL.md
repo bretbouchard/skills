@@ -1,6 +1,6 @@
 ---
 name: gsd-execute-phase
-description: "INTERNAL — invoked by /gsd umbrella. Execute all plans in a phase with wave-based parallelization"
+description: "Execute all plans in a phase with wave-based parallelization"
 argument-hint: "<phase-number> [--wave N] [--gaps-only] [--interactive] [--tdd]"
 allowed-tools:
   - Read

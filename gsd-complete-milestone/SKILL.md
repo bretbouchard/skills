@@ -1,6 +1,6 @@
 ---
 name: gsd-complete-milestone
-description: "INTERNAL — invoked by /gsd umbrella. Archive completed milestone and prepare for next version"
+description: "Archive completed milestone and prepare for next version"
 argument-hint: "<version>"
 allowed-tools:
   - Read

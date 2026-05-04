@@ -1,6 +1,6 @@
 ---
 name: gsd-reapply-patches
-description: "INTERNAL — invoked by /gsd umbrella. Reapply local modifications after a GSD update"
+description: "Reapply local modifications after a GSD update"
 ---
 
 

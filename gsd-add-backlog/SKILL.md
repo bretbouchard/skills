@@ -1,6 +1,6 @@
 ---
 name: gsd-add-backlog
-description: "INTERNAL — invoked by /gsd umbrella. Add a feature idea or task to the GSD backlog parking lot with 999.x numbering. Use when user says 'add to backlog', 'park this idea', 'save for later', 'backlog this', or 'add feature idea'. Always invoke this skill to capture backlog items rather than just noting them."
+description: "Add a feature idea or task to the GSD backlog parking lot with 999.x numbering. Use when user says 'add to backlog', 'park this idea', 'save for later', 'backlog this', or 'add feature idea'. Always invoke this skill to capture backlog items rather than just noting them."
 argument-hint: "<description>"
 allowed-tools:
   - Read

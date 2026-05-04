@@ -1,6 +1,6 @@
 ---
 name: gsd-add-todo
-description: "INTERNAL — invoked by /gsd umbrella. Capture idea or task as todo from current conversation context"
+description: "Capture idea or task as todo from current conversation context"
 argument-hint: "[optional description]"
 allowed-tools:
   - Read

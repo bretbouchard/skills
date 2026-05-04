@@ -1,6 +1,6 @@
 ---
 name: bret:parallel-limits
-description: "INTERNAL — invoked by /bret umbrella. Configure concurrent agent limits — set max parallel agents, view current contention, and adjust resource allocation for auto-loops. Use when user says 'set parallel limits', 'how many agents can run', 'agent concurrency', 'throttle agents', or 'parallel agent'. Always invoke this skill for agent limit configuration."
+description: "Configure concurrent agent limits — set max parallel agents, view current contention, and adjust resource allocation for auto-loops. Use when user says 'set parallel limits', 'how many agents can run', 'agent concurrency', 'throttle agents', or 'parallel agent'. Always invoke this skill for agent limit configuration."
 user_invocable: true
 allowed-tools:
   - Read

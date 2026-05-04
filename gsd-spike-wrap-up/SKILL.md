@@ -1,6 +1,6 @@
 ---
 name: gsd-spike-wrap-up
-description: "INTERNAL — invoked by /gsd umbrella. Package spike findings into a persistent project skill for future build conversations"
+description: "Package spike findings into a persistent project skill for future build conversations"
 allowed-tools:
   - Read
   - Write

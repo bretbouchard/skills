@@ -1,6 +1,6 @@
 ---
 name: gsd-set-profile
-description: "INTERNAL — invoked by /gsd umbrella. Switch model profile for GSD agents (quality/balanced/budget/inherit)"
+description: "Switch model profile for GSD agents (quality/balanced/budget/inherit)"
 argument-hint: "<profile (quality|balanced|budget|inherit)>"
 allowed-tools:
   - Bash

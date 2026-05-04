@@ -1,6 +1,6 @@
 ---
 name: gsd-remove-phase
-description: "INTERNAL — invoked by /gsd umbrella. Remove a future phase from roadmap and renumber subsequent phases"
+description: "Remove a future phase from roadmap and renumber subsequent phases"
 argument-hint: "<phase-number>"
 allowed-tools:
   - Read

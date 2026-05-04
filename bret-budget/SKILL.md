@@ -1,6 +1,6 @@
 ---
 name: bret:budget
-description: "INTERNAL — invoked by /bret umbrella. Manage agent budget allocation — view current agent usage, set parallel limits, and track token spend across active sessions. Use when user asks about agent budget, token costs, or resource limits."
+description: "Manage agent budget allocation — view current agent usage, set parallel limits, and track token spend across active sessions. Use when user asks about agent budget, token costs, or resource limits."
 user_invocable: true
 allowed-tools:
   - Read

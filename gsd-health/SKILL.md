@@ -1,6 +1,6 @@
 ---
 name: gsd-health
-description: "INTERNAL — invoked by /gsd umbrella. Diagnose GSD planning directory health and optionally repair issues — checks STATE.md, ROADMAP.md, phase directories for consistency. Use when user says 'check project health', 'health check', 'diagnose planning', 'is my project healthy', or 'repair planning'. Always invoke this skill for project health diagnostics."
+description: "Diagnose GSD planning directory health and optionally repair issues — checks STATE.md, ROADMAP.md, phase directories for consistency. Use when user says 'check project health', 'health check', 'diagnose planning', 'is my project healthy', or 'repair planning'. Always invoke this skill for project health diagnostics."
 argument-hint: "[--repair]"
 allowed-tools:
   - Read

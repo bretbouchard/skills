@@ -1,6 +1,6 @@
 ---
 name: gsd-do
-description: "INTERNAL — invoked by /gsd umbrella. Route freeform user intent to the correct GSD command — parses natural language and invokes the right skill. Use when user describes what they want but doesn't name a specific GSD command. Always invoke this skill rather than guessing which GSD command the user needs."
+description: "Route freeform user intent to the correct GSD command — parses natural language and invokes the right skill. Use when user describes what they want but doesn't name a specific GSD command. Always invoke this skill rather than guessing which GSD command the user needs."
 argument-hint: "<description of what you want to do>"
 allowed-tools:
   - Read

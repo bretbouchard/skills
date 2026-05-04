@@ -1,6 +1,6 @@
 ---
 name: gsd-pause-work
-description: "INTERNAL — invoked by /gsd umbrella. Create context handoff when pausing work mid-phase"
+description: "Create context handoff when pausing work mid-phase"
 allowed-tools:
   - Read
   - Write

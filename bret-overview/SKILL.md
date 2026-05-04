@@ -1,6 +1,6 @@
 ---
 name: bret:overview
-description: "INTERNAL — invoked by /bret umbrella. Show unified dashboard of all work — GSD projects, beads tasks, auto-loop status, agent budget, blockers, progress. Triggers: show me everything, overview, dashboard, what's the status, what's going on"
+description: "Show unified dashboard of all work — GSD projects, beads tasks, auto-loop status, agent budget, blockers, progress. Triggers: show me everything, overview, dashboard, what's the status, what's going on"
 user_invocable: true
 allowed-tools:
   - Read

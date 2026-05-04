@@ -1,6 +1,6 @@
 ---
 name: gsd-settings
-description: "INTERNAL — invoked by /gsd umbrella. Configure GSD workflow toggles and model profile"
+description: "Configure GSD workflow toggles and model profile"
 allowed-tools:
   - Read
   - Write

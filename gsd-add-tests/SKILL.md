@@ -1,6 +1,6 @@
 ---
 name: gsd-add-tests
-description: "INTERNAL — invoked by /gsd umbrella. Generate tests for a completed phase based on UAT criteria and implementation"
+description: "Generate tests for a completed phase based on UAT criteria and implementation"
 argument-hint: "<phase> [additional instructions]"
 allowed-tools:
   - Read

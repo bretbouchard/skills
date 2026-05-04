@@ -1,6 +1,6 @@
 ---
 name: gsd-analyze-dependencies
-description: "INTERNAL — invoked by /gsd umbrella. Analyze phase dependencies and suggest Depends on entries for ROADMAP.md"
+description: "Analyze phase dependencies and suggest Depends on entries for ROADMAP.md"
 allowed-tools:
   - Read
   - Write
