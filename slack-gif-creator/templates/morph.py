@@ -27,7 +27,7 @@ def create_morph_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create morphing animation between two objects.
@@ -235,7 +235,7 @@ def create_shape_morph(
     frames_per_shape: int = 20,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Morph through a sequence of shapes.

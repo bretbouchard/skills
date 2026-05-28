@@ -27,7 +27,7 @@ def create_move_animation(
     motion_params: dict | None = None,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list:
     """
     Create frames showing object moving along a path.

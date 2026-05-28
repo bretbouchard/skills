@@ -27,7 +27,7 @@ def create_spin_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create spinning/rotating animation.
@@ -114,8 +114,8 @@ def create_spin_animation(
                 text,
                 position=(canvas_size // 2, canvas_size // 2),
                 font_size=font_size,
-                text_color=object_data.get('text_color', (0, 0, 0)),
-                outline_color=object_data.get('outline_color', (255, 255, 255)),
+                text_color=object_data.get('text_color', (255, 255, 255)),
+                outline_color=object_data.get('outline_color', (0, 0, 0)),
                 outline_width=3,
                 centered=True
             )
@@ -153,7 +153,7 @@ def create_loading_spinner(
     color: tuple[int, int, int] = (100, 150, 255),
     frame_width: int = 128,
     frame_height: int = 128,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create a loading spinner animation.

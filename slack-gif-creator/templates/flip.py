@@ -27,7 +27,7 @@ def create_flip_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create 3D-style flip animation.

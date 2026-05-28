@@ -28,7 +28,7 @@ def create_zoom_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create zoom animation.
@@ -132,8 +132,8 @@ def create_zoom_animation(
                 text=object_data.get('text', 'ZOOM'),
                 position=(canvas_size // 2, canvas_size // 2),
                 font_size=current_size,
-                text_color=object_data.get('text_color', (0, 0, 0)),
-                outline_color=object_data.get('outline_color', (255, 255, 255)),
+                text_color=object_data.get('text_color', (255, 255, 255)),
+                outline_color=object_data.get('outline_color', (0, 0, 0)),
                 outline_width=max(2, int(current_size * 0.05)),
                 centered=True
             )
@@ -153,7 +153,7 @@ def create_explosion_zoom(
     num_frames: int = 20,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create dramatic explosion zoom effect.
@@ -223,7 +223,7 @@ def create_mind_blown_zoom(
     num_frames: int = 30,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create "mind blown" dramatic zoom with shake.

@@ -30,7 +30,7 @@ def create_explode_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create explosion animation.
@@ -244,7 +244,7 @@ def create_particle_burst(
     colors: list[tuple[int, int, int]] | None = None,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create simple particle burst effect.

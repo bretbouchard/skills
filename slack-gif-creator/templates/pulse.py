@@ -27,7 +27,7 @@ def create_pulse_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create pulsing/scaling animation.
@@ -157,7 +157,7 @@ def create_attention_pulse(
     emoji: str = '⚠️',
     num_frames: int = 20,
     frame_size: int = 128,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create attention-grabbing pulse (good for emoji GIFs).
@@ -193,7 +193,7 @@ def create_breathing_animation(
     scale_range: tuple[float, float] = (0.9, 1.1),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (240, 248, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create slow, calming breathing animation (in and out).

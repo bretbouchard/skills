@@ -27,7 +27,7 @@ def create_slide_animation(
     final_pos: tuple[int, int] | None = None,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create slide animation.
@@ -126,8 +126,8 @@ def create_slide_animation(
                 text=object_data.get('text', 'SLIDE'),
                 position=(x, y),
                 font_size=object_data.get('font_size', 50),
-                text_color=object_data.get('text_color', (0, 0, 0)),
-                outline_color=object_data.get('outline_color', (255, 255, 255)),
+                text_color=object_data.get('text_color', (255, 255, 255)),
+                outline_color=object_data.get('outline_color', (0, 0, 0)),
                 outline_width=3,
                 centered=True
             )
@@ -143,7 +143,7 @@ def create_multi_slide(
     stagger_delay: int = 3,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create animation with multiple objects sliding in sequence.

@@ -26,7 +26,7 @@ Determine what THIS iteration should focus on based on strategy and accumulated 
 Use all available tools to understand the codebase before acting:
 - **Confucius**: `mcp__confucius__memory_retrieve(query="relevant patterns")`
 - **Serena**: `mcp__serena__find_symbol` for code structure
-- **Cognee**: `mcp__cognee-local__search` for semantic code search
+- **Serena**: `mcp__serena__find_symbol` for code structure
 - **Context Hub**: `mcp__chub__chub_get` for API documentation
 - **WebSearch**: for latest best practices
 - **Agent (Explore)**: for broad codebase exploration
@@ -46,7 +46,7 @@ Execute the iteration's focus using the full tool arsenal. Parallelize independe
 | Store learnings | `mcp__confucius__memory_store` |
 | Retrieve solutions | `mcp__confucius__memory_retrieve` |
 | API docs | `mcp__chub__chub_get` |
-| Semantic search | `mcp__cognee-local__search` |
+| Code structure | `mcp__serena__find_symbol` |
 | Browser testing | `Bash("gsd-browser ...")` |
 | Web research | `WebSearch` |
 | Parallel subtasks | `Agent` (max 5 concurrent) |

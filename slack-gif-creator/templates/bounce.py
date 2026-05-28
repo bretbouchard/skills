@@ -25,7 +25,7 @@ def create_bounce_animation(
     start_x: int = 240,
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list:
     """
     Create frames for a bouncing animation.

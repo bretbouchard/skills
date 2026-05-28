@@ -24,8 +24,6 @@ allowed-tools:
   - mcp__confucius__memory_retrieve
   - mcp__confucius__memory_retrodict
   - mcp__confucius__memory_record_trajectory
-  - mcp__cognee-local__search
-  - mcp__cognee-local__cognify
   - mcp__serena__find_symbol
   - mcp__serena__get_symbols_overview
   - mcp__serena__replace_symbol_body

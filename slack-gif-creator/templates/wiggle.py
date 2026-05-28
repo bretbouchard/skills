@@ -27,7 +27,7 @@ def create_wiggle_animation(
     center_pos: tuple[int, int] = (240, 240),
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list[Image.Image]:
     """
     Create wiggle/wobble animation.
@@ -195,8 +195,8 @@ def create_wiggle_animation(
                 text=object_data.get('text', 'WIGGLE'),
                 position=(canvas_size // 2, canvas_size // 2),
                 font_size=object_data.get('font_size', 50),
-                text_color=object_data.get('text_color', (0, 0, 0)),
-                outline_color=object_data.get('outline_color', (255, 255, 255)),
+                text_color=object_data.get('text_color', (255, 255, 255)),
+                outline_color=object_data.get('outline_color', (0, 0, 0)),
                 outline_width=3,
                 centered=True
             )

@@ -26,7 +26,7 @@ def create_shake_animation(
     direction: str = 'horizontal',  # 'horizontal', 'vertical', or 'both'
     frame_width: int = 480,
     frame_height: int = 480,
-    bg_color: tuple[int, int, int] = (255, 255, 255)
+    bg_color: tuple[int, int, int] = (30, 30, 35)
 ) -> list:
     """
     Create frames for a shaking animation.

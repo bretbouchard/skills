@@ -599,6 +599,678 @@ Verify that symbol pin numbers match footprint pad numbers.
 
 ---
 
+#### update_footprint_from_library
+
+Reload a PCB footprint's geometry from the library `.kicad_mod` file, preserving position, rotation, net assignments, reference designator, and PCB-embedded fields (UUID, path, sheetname, sheetfile). Equivalent to KiCad's "Update Footprints from Library" GUI command. Fixes `lib_footprint_mismatch` DRC violations.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"update_footprint_from_library"` |
+| `target_file` | string | Relative path to KiCad PCB file (`.kicad_pcb` only) |
+| `reference` | string | Reference designator of the footprint to update (1-64 chars) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `footprint_lib_id` | string | `null` | Override lib_id. `null` = refresh from existing library (1-256 chars) |
+
+**Example (refresh from existing library):**
+
+```json
+{
+  "root": {
+    "op_type": "update_footprint_from_library",
+    "target_file": "board.kicad_pcb",
+    "reference": "U2"
+  }
+}
+```
+
+**Example (swap and update in one step):**
+
+```json
+{
+  "root": {
+    "op_type": "update_footprint_from_library",
+    "target_file": "board.kicad_pcb",
+    "reference": "U3",
+    "footprint_lib_id": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+  }
+}
+```
+
+**Result details:**
+
+```json
+{
+  "reference": "U2",
+  "lib_id": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+  "old_lib_id": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+  "preserved_nets": 3,
+  "lost_nets": [],
+  "new_pads": []
+}
+```
+
+- `preserved_nets`: Number of pad-to-net connections successfully transferred to the new footprint
+- `lost_nets`: Pad numbers whose nets couldn't be restored (pad doesn't exist in new footprint)
+- `new_pads`: Pad numbers in the new footprint that weren't in the old one
+
+---
+
+### Schematic Connectivity
+
+#### add_wire
+
+Add a wire segment between two points in a schematic.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_wire"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+| `start_x` | number | Start X coordinate in mm |
+| `start_y` | number | Start Y coordinate in mm |
+| `end_x` | number | End X coordinate in mm |
+| `end_y` | number | End Y coordinate in mm |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_wire",
+    "target_file": "filter.kicad_sch",
+    "start_x": 50.0,
+    "start_y": 30.0,
+    "end_x": 70.0,
+    "end_y": 30.0
+  }
+}
+```
+
+---
+
+#### add_label
+
+Add a net label to a schematic (local, global, or hierarchical).
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_label"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+| `name` | string | Label text (1-128 chars, e.g. `"SDA"`, `"+5V"`) |
+| `position` | object | Placement coordinates `{x, y}` with optional `angle` |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `label_type` | string | `"local"` | Label scope: `"local"`, `"global"`, or `"hierarchical"` |
+| `shape` | string | `"input"` | Shape for global/hierarchical labels: `"input"`, `"output"`, `"bidirectional"`, `"tri_state"`, `"passive"` |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_label",
+    "target_file": "filter.kicad_sch",
+    "name": "SDA",
+    "label_type": "local",
+    "position": {"x": 50.0, "y": 30.0},
+    "shape": "input"
+  }
+}
+```
+
+---
+
+#### add_power
+
+Add a power symbol to a schematic (e.g. +5V, GND, +3V3). Places a `power:<name>` library symbol with a single pin that connects to the named net.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_power"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+| `name` | string | Power net name (1-64 chars, e.g. `"+5V"`, `"GND"`, `"+3V3"`) |
+| `position` | object | Placement coordinates `{x, y}` with optional `angle` |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_power",
+    "target_file": "filter.kicad_sch",
+    "name": "+12V",
+    "position": {"x": 20.0, "y": 50.0}
+  }
+}
+```
+
+---
+
+#### add_no_connect
+
+Add a no-connect flag to a schematic pin.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_no_connect"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+| `position` | object | Placement coordinates `{x, y}` (angle is ignored) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_no_connect",
+    "target_file": "filter.kicad_sch",
+    "position": {"x": 86.36, "y": 317.5}
+  }
+}
+```
+
+---
+
+#### add_junction
+
+Add a junction dot at a wire intersection in a schematic.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_junction"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+| `position` | object | Placement coordinates `{x, y}` (angle is ignored) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_junction",
+    "target_file": "filter.kicad_sch",
+    "position": {"x": 50.0, "y": 30.0}
+  }
+}
+```
+
+---
+
+### Library Management
+
+#### add_lib_entry
+
+Add a library entry to sym-lib-table or fp-lib-table.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_lib_entry"` |
+| `target_file` | string | Relative path to sym-lib-table or fp-lib-table |
+| `lib_name` | string | Library name (1-128 chars, e.g. `"Device"`, `"MyLib"`) |
+| `lib_type` | string | Library type: `"KiCad"` or `"Legacy"` |
+| `uri` | string | Library URI path (1-512 chars, may contain `${KIPRJMOD}`) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `options` | string | `""` | Library options string |
+| `description` | string | `""` | Library description |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_lib_entry",
+    "target_file": "sym-lib-table",
+    "lib_name": "MyLib",
+    "lib_type": "KiCad",
+    "uri": "${KIPRJMOD}/MyLib.kicad_sym"
+  }
+}
+```
+
+---
+
+#### remove_lib_entry
+
+Remove a library entry from sym-lib-table or fp-lib-table.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"remove_lib_entry"` |
+| `target_file` | string | Relative path to sym-lib-table or fp-lib-table |
+| `lib_name` | string | Library name to remove (1-128 chars) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "remove_lib_entry",
+    "target_file": "sym-lib-table",
+    "lib_name": "MyLib"
+  }
+}
+```
+
+---
+
+### Validation & Repair
+
+#### repair_schematic
+
+Auto-repair common ERC errors: wire snapping, orphaned label removal, no-connect placement.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"repair_schematic"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `snap_wires` | boolean | `true` | Snap wire endpoints to nearest pin positions |
+| `remove_orphans` | boolean | `true` | Remove labels not connected to any wire or pin |
+| `place_no_connects` | boolean | `true` | Place no-connect markers on unconnected pins |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "repair_schematic",
+    "target_file": "filter.kicad_sch"
+  }
+}
+```
+
+---
+
+#### validate_power_nets
+
+Check all power pins have connected power symbols. Validates every `power_in`/`power_out` pin is connected to a `power:*` library reference.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"validate_power_nets"` |
+| `target_file` | string | Relative path to KiCad schematic file (`.kicad_sch`) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "validate_power_nets",
+    "target_file": "filter.kicad_sch"
+  }
+}
+```
+
+---
+
+### PCB Design
+
+#### add_copper_zone
+
+Add a copper zone/ground pour to a PCB.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_copper_zone"` |
+| `target_file` | string | Relative path to KiCad PCB file (`.kicad_pcb`) |
+| `net_name` | string | Net name for the zone (1-64 chars, e.g. `"GND"`) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `layer` | string | `"F.Cu"` | Copper layer (e.g. `"F.Cu"`, `"B.Cu"`) |
+| `clearance` | number | `0.5` | Zone clearance in mm (> 0) |
+| `min_width` | number | `0.25` | Minimum fill width in mm (> 0) |
+| `priority` | integer | `0` | Zone priority (higher = filled first) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_copper_zone",
+    "target_file": "board.kicad_pcb",
+    "net_name": "GND",
+    "layer": "B.Cu"
+  }
+}
+```
+
+---
+
+#### set_board_outline
+
+Define PCB board shape as a rectangle on Edge.Cuts.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"set_board_outline"` |
+| `target_file` | string | Relative path to KiCad PCB file (`.kicad_pcb`) |
+| `width` | number | Board width in mm (> 0, max 1000) |
+| `height` | number | Board height in mm (> 0, max 1000) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "set_board_outline",
+    "target_file": "board.kicad_pcb",
+    "width": 100.0,
+    "height": 80.0
+  }
+}
+```
+
+---
+
+#### add_net_class
+
+Add a net class with track/via/clearance dimensions to a `.kicad_dru` file.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_net_class"` |
+| `target_file` | string | Relative path to `.kicad_dru` file |
+| `name` | string | Net class name (1-64 chars) |
+| `clearance` | number | Clearance in mm (> 0) |
+| `track_width` | number | Track width in mm (> 0) |
+| `via_diameter` | number | Via diameter in mm (> 0) |
+| `via_drill` | number | Via drill in mm (> 0) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_net_class",
+    "target_file": "board.kicad_dru",
+    "name": "Power",
+    "clearance": 0.3,
+    "track_width": 0.5,
+    "via_diameter": 0.8,
+    "via_drill": 0.4
+  }
+}
+```
+
+---
+
+#### add_design_rule
+
+Add a custom DRC rule to a `.kicad_dru` file.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"add_design_rule"` |
+| `target_file` | string | Relative path to `.kicad_dru` file |
+| `name` | string | Rule name (1-128 chars) |
+| `constraint_type` | string | Constraint type (1-64 chars, e.g. `"clearance"`, `"width"`) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `constraint_values` | object | `{}` | Key-value constraint parameters |
+| `condition` | string | `""` | KiCad condition expression (max 512 chars) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "add_design_rule",
+    "target_file": "board.kicad_dru",
+    "name": "clearance_to_power",
+    "constraint_type": "clearance",
+    "constraint_values": {"min": "0.5"},
+    "condition": "A.hasNetClass('Power')"
+  }
+}
+```
+
+---
+
+#### assign_net_class
+
+Assign a net class to a specific net in the PCB.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"assign_net_class"` |
+| `target_file` | string | Relative path to KiCad PCB file (`.kicad_pcb`) |
+| `net_name` | string | Net name (1-64 chars) |
+| `net_class_name` | string | Net class name (1-64 chars) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "assign_net_class",
+    "target_file": "board.kicad_pcb",
+    "net_name": "VCC",
+    "net_class_name": "Power"
+  }
+}
+```
+
+---
+
+#### auto_route
+
+Auto-route nets on a PCB using A* pathfinding.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"auto_route"` |
+| `target_file` | string | Relative path to KiCad PCB file (`.kicad_pcb`) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `nets` | array | `[]` | Specific net names to route (empty = route all) |
+| `layer` | string | `"F.Cu"` | Target copper layer |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "auto_route",
+    "target_file": "board.kicad_pcb",
+    "nets": ["SDA", "SCL"],
+    "layer": "F.Cu"
+  }
+}
+```
+
+---
+
+### File Creation
+
+#### create_schematic
+
+Create a new empty `.kicad_sch` file.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"create_schematic"` |
+| `target_file` | string | Relative path for the new file (must not exist) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `paper` | string | `"A4"` | Paper size (e.g. `"A4"`, `"A3"`) |
+| `title` | string | `""` | Title block title |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "create_schematic",
+    "target_file": "new.kicad_sch",
+    "paper": "A3",
+    "title": "My Schematic"
+  }
+}
+```
+
+---
+
+#### create_pcb
+
+Create a new empty `.kicad_pcb` file.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"create_pcb"` |
+| `target_file` | string | Relative path for the new file (must not exist) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `title` | string | `""` | Title block title |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "create_pcb",
+    "target_file": "new.kicad_pcb",
+    "title": "My Board"
+  }
+}
+```
+
+---
+
+#### create_project
+
+Create a new empty `.kicad_pro` project file.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"create_project"` |
+| `target_file` | string | Relative path for the new file (must not exist) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "create_project",
+    "target_file": "new.kicad_pro"
+  }
+}
+```
+
+---
+
+#### create_symbol
+
+Create a new symbol definition in a `.kicad_sym` library file. If the library doesn't exist, it's created. Duplicate symbol names are rejected.
+
+**Required fields:**
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `op_type` | string | Must be `"create_symbol"` |
+| `target_file` | string | Relative path to `.kicad_sym` library file |
+| `symbol_name` | string | Symbol name (1-128 chars) |
+
+**Optional fields:**
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `reference_prefix` | string | `"U"` | Reference prefix (e.g. `"R"`, `"U"`, `"C"`) |
+| `value` | string | `""` | Default symbol value |
+| `pins` | array | `[]` | Pin definitions (max 200) |
+| `properties` | array | `[]` | Additional custom properties (max 50) |
+| `body_width` | number | `10.16` | Body rectangle width in mm (> 0, max 200) |
+| `body_height` | number | `10.16` | Body rectangle height in mm (> 0, max 200) |
+
+**Example:**
+
+```json
+{
+  "root": {
+    "op_type": "create_symbol",
+    "target_file": "mylib.kicad_sym",
+    "symbol_name": "OPAMP_DUAL",
+    "reference_prefix": "U",
+    "pins": [
+      {"name": "OUT_A", "number": "1", "etype": "output"},
+      {"name": "IN_A-", "number": "2", "etype": "input"},
+      {"name": "IN_A+", "number": "3", "etype": "input"},
+      {"name": "V-", "number": "4", "etype": "power_in"},
+      {"name": "IN_B+", "number": "5", "etype": "input"},
+      {"name": "IN_B-", "number": "6", "etype": "input"},
+      {"name": "OUT_B", "number": "7", "etype": "output"},
+      {"name": "V+", "number": "8", "etype": "power_in"}
+    ]
+  }
+}
+```
+
+---
+
 ## Constraints
 
 All operations must satisfy these constraints. Violations produce clear error messages from the Pydantic validator.
@@ -712,5 +1384,25 @@ Net names and bus names reject whitespace-only strings. If a name is `"   "` (sp
 | `cross_ref_check` | sch | target_file |
 | `assign_footprint` | sch | target_file, reference, footprint_lib_id |
 | `swap_footprint` | pcb | target_file, reference, new_footprint_lib_id |
+| `update_footprint_from_library` | pcb | target_file, reference |
 | `validate_footprint` | all | target_file, footprint_lib_id |
 | `verify_pin_map` | all | target_file, reference, footprint_lib_id |
+| `add_wire` | sch | target_file, start_x, start_y, end_x, end_y |
+| `add_label` | sch | target_file, name, position |
+| `add_power` | sch | target_file, name, position |
+| `add_no_connect` | sch | target_file, position |
+| `add_junction` | sch | target_file, position |
+| `add_lib_entry` | lib-table | target_file, lib_name, lib_type, uri |
+| `remove_lib_entry` | lib-table | target_file, lib_name |
+| `repair_schematic` | sch | target_file |
+| `validate_power_nets` | sch | target_file |
+| `add_copper_zone` | pcb | target_file, net_name |
+| `set_board_outline` | pcb | target_file, width, height |
+| `add_net_class` | dru | target_file, name, clearance, track_width, via_diameter, via_drill |
+| `add_design_rule` | dru | target_file, name, constraint_type |
+| `assign_net_class` | pcb | target_file, net_name, net_class_name |
+| `auto_route` | pcb | target_file |
+| `create_schematic` | sch | target_file |
+| `create_pcb` | pcb | target_file |
+| `create_project` | pro | target_file |
+| `create_symbol` | sym | target_file, symbol_name |
