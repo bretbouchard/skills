@@ -41,6 +41,18 @@ Keep all domain specialists cutting-edge.
 4. Generate audit report at `data/rick-audit-report.md`
 5. If `--auto-fix`, apply minor updates; queue major changes
 
+### Mode 2.5: Quality Audit
+
+```
+/rick-audit --quality
+```
+
+1. Launch `rick-curator` agent in quality mode
+2. Analyzes Council review history (data/council-history/)
+3. Computes per-Rick helpfulness/harmfulness metrics
+4. Generates quality report at `data/rick-quality-report.md`
+5. Display only — no auto-adjustments
+
 ### Mode 3: Schedule Recurring Audit
 
 ```
@@ -57,28 +69,26 @@ Creates a CronCreate job:
 ```
 Agent(
   subagent_type="rick-curator",
-  prompt="Run a <single/full> currency audit.
+  prompt="Run a <single/full/quality> audit.
 
   Target: <rick-name or 'all'>
   Auto-fix: <true/false>
+  Quality: <true/false>
 
   Follow the full process:
-  1. Scan agent definitions
+  1. Scan agent definitions (or Council history for quality)
   2. Research cutting-edge for each domain
-  3. Diff current vs latest
-  4. Score each Rick (0-100)
+  3. Diff current vs latest (or compute helpfulness/harmfulness)
+  4. Score each Rick (0-100 for currency, ratio for quality)
   5. Apply minor updates (if auto-fix)
-  6. Generate report at data/rick-audit-report.md"
+  6. Generate report at data/rick-audit-report.md (or data/rick-quality-report.md)"
 )
 ```
 
 ## Output
 
-Audit report at `data/rick-audit-report.md` with:
-- Currency scores per Rick
-- Specific update items (version bumps, new APIs, deprecations)
-- Auto-applied changes log
-- Items queued for user review
+- Currency audit: `data/rick-audit-report.md` with currency scores, update items, auto-applied changes
+- Quality audit: `data/rick-quality-report.md` with per-Rick helpfulness/harmfulness ratios and grades
 
 ## Examples
 
@@ -86,6 +96,7 @@ Audit report at `data/rick-audit-report.md` with:
 /rick-audit                        # Full audit of all Ricks
 /rick-audit kicad-rick             # Single Rick audit
 /rick-audit --auto-fix             # Full audit + auto-apply minor updates
+/rick-audit --quality              # Per-Rick quality scores from Council history
 /rick-audit --schedule weekly      # Schedule Monday 9am recurring audit
 /rick-audit --schedule "0 9 * * 1" # Custom schedule
 ```
