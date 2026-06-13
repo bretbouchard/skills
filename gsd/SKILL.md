@@ -41,7 +41,7 @@ Wait for response before continuing.
 **Check if project exists.**
 
 ```bash
-INIT=$(gsd-sdk query state.load 2>/dev/null)
+INIT=$(gsd-sdk state load 2>/dev/null)
 ```
 
 Track whether `.planning/` exists — routes marked [requires project] need it.
