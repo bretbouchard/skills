@@ -18,6 +18,7 @@ Hybrid triage system that processes bug reports filed as Beads. QA tools and ver
 
 **Invocations:**
 - `/bug-triage` — scan and triage all open bugs (interactive mode)
+- `/bug-triage --bead {id}` — triage a single bug just filed (used by QA tools after filing)
 - `/bug-triage --project {name}` — scan only a specific project
 - `/bug-triage --scheduled` — scheduled/cron mode (minimal output, designed for automation)
 
@@ -35,10 +36,13 @@ Parse `$ARGUMENTS` for flags:
 | Flag | Effect |
 |------|--------|
 | (none) | Interactive mode — full output, confirm before fixing |
+| `--bead {id}` | Triage a single bug by ID (skips polling, goes straight to Step 4) |
 | `--project {name}` | Filter bugs to a single project |
 | `--scheduled` | Autonomous mode — minimal output, no confirmation needed |
 
 Set `$MODE` to `interactive` or `scheduled` based on flags.
+
+If `--bead {id}` is provided, skip Step 3 (Poll Bugs) and proceed directly to Step 4 with only that bead. This is the automated path — QA tools invoke `/bug-triage --bead {id}` immediately after filing, so triage runs the moment a bug is reported.
 
 ### Step 2: Load Reference
 
