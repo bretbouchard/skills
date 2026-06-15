@@ -150,8 +150,12 @@ confidence < 0.50                             →  ESCALATE
 4. Log via triage_logger.py
 
 **ESCALATE** (confidence < 0.50):
-1. Update the bead with `needs-human` label: `mcp__beads__beads_update(id=bead_id, labels="bug,needs-human")`
-2. Add triage findings as a bead comment:
+1. Send push notification so Bret knows immediately:
+   ```bash
+   happy notify "ESCALATED [{severity}] {title} — confidence {score} — {project}"
+   ```
+2. Update the bead with `needs-human` label: `mcp__beads__beads_update(id=bead_id, labels="bug,needs-human")`
+3. Add triage findings as a bead comment:
    ```
    mcp__beads__beads_comment(
      id=bead_id,
@@ -161,7 +165,7 @@ confidence < 0.50                             →  ESCALATE
            Suggested investigation: {direction}"
    )
    ```
-3. Log via triage_logger.py:
+4. Log via triage_logger.py:
    ```bash
    python3 skills/bug-triage/scripts/triage_logger.py \
      --bead-id {id} --action escalate --confidence {score} \
