@@ -2,6 +2,56 @@
 
 Full spec: `~/.claude/docs/BUG-REPORT-SPEC.md`
 
+## Filing Bugs
+
+Two paths for QA tools to file bugs — both produce identical output:
+
+### CLI (standalone scripts)
+
+```bash
+file-bug --title "DRC export missing clearance" \
+  --project kicad-agent --severity broken --area "DRC export" \
+  --file lib/drc_exporter.py \
+  --expected "Clearance values present" \
+  --actual "Clearance values missing" \
+  --repro-step "Open board with copper pour" \
+  --repro-step "Run DRC export" \
+  --evidence "lib/drc_exporter.py:142"
+```
+
+```bash
+file-bug --type feature --title "Add batch export" \
+  --project kicad-agent --area "export" \
+  --description "Support batch DRC export for multiple boards" \
+  --rationale "Users need to process boards in bulk"
+```
+
+### Python Library (agents, importable modules)
+
+```python
+from lib.file_bug import build_bug_description, build_feature_description, get_labels, get_priority
+
+desc = build_bug_description(
+    title="DRC export missing clearance",
+    project="kicad-agent",
+    severity="broken",
+    area="DRC export",
+    file="lib/drc_exporter.py",
+    repro_steps=["Open board with copper pour", "Run DRC export"],
+    expected="Clearance values present",
+    actual="Clearance values missing",
+    evidence=["lib/drc_exporter.py:142"],
+)
+labels = get_labels("bug", "broken", "kicad-agent")  # "bug,broken,kicad-agent"
+priority = get_priority("broken")                     # "1"
+```
+
+### After Filing
+
+```bash
+/bug-triage --bead {id}   # immediate triage of just-filed bug
+```
+
 ## Bead Labels Format
 
 ```
