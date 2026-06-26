@@ -43,7 +43,18 @@ cat .planning/PROJECT.md 2>/dev/null | head -20
 cat .planning/STATE.md 2>/dev/null | head -30
 ```
 
-## 4. Summary
+## 4. Quality Scorecard
+
+```bash
+python3 ~/.claude/lib/quality_scorecard_cli.py show --weeks 4
+python3 ~/.claude/lib/quality_scorecard_cli.py alert
+```
+
+Display:
+- 4-week trend of council_avg_score, drift_count, escalation_tiers_reached, verifier_grade_distribution
+- Any WoW >15% drop alert (advisory — never a gate)
+
+## 5. Summary
 
 Present a unified dashboard:
 ```
